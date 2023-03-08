@@ -10,7 +10,7 @@ weights_path = os.path.join('.', 'model', 'weights', 'yolov3.weights')
 names_path = os.path.join('.', 'model', 'class.names')
 
 # load class names
-with open(class_names_path, 'r') as f:
+with open(names_path, 'r') as f:
     class_names = [j[:-1] for j in f.readlines() if len(j) > 2]
     f.close()
 
