@@ -15,8 +15,10 @@ with open(names_path, 'r') as f:
     f.close()
 
 # load model
+net = cv2.dnn.readNetFromDarknet(cfg_path, weights_path)
 
 # load image
+img = cv2.imread('image/dog.jpg')
 
 # convert image
 
