@@ -21,8 +21,10 @@ net = cv2.dnn.readNetFromDarknet(cfg_path, weights_path)
 img = cv2.imread('image/dog.jpg')
 
 # convert image
+blob = cv2.dnn.blobFromImage(img, 1/255, (320, 320), (0, 0, 0), True)
 
 # get detections
+net.setInput(blob)
 
 # bounding box, class id, confidence
 
