@@ -27,6 +27,9 @@ blob = cv2.dnn.blobFromImage(img, 1/255, (320, 320), (0, 0, 0), True)
 net.setInput(blob)
 
 # bounding box, class id, confidence
+b_boxes = []
+c_id = []
+confidence = []
 
 # apply nms
 
