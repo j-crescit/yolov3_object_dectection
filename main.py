@@ -19,17 +19,23 @@ net = cv2.dnn.readNetFromDarknet(cfg_path, weights_path)
 
 # load image
 img = cv2.imread('image/dog.jpg')
+H, W, _ = img.shape
 
 # convert image
 blob = cv2.dnn.blobFromImage(img, 1/255, (320, 320), (0, 0, 0), True)
 
 # get detections
 net.setInput(blob)
+detections = util.get_outputs(net)
 
 # bounding box, class id, confidence
 b_boxes = []
 c_id = []
 confidence = []
+
+for detection in detections:
+    b_box = detection[:4]
+    b_box = [int(xc * W), int(yc * H), int(w * W), int(h * H)]
 
 # apply nms
 
