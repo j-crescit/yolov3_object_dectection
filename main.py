@@ -37,6 +37,16 @@ for detection in detections:
     b_box = detection[:4]
     b_box = [int(xc * W), int(yc * H), int(w * W), int(h * H)]
 
+    b_box_confidence = detection[4]
+
+    class_id = np.argmax(detection[4])
+    score = np.amax(detection[5:])
+
+    b_boxes.append(b_box)
+    c_id.append(class_id)
+    confidence.append(score)
+
 # apply nms
+b_boxes, c_id, confidence = util.NMS(b_boxes, class_id, confidence)
 
 # plot
