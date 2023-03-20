@@ -50,3 +50,8 @@ for detection in detections:
 b_boxes, c_id, confidence = util.NMS(b_boxes, class_id, confidence)
 
 # plot
+
+for b_box_, b_box in enumerate(b_boxes):
+    xc, yc, w, h = b_box
+
+    cv2.putText(img, class_names[class_id[b_box_]], (int(xc - (w / 2)), int(yc + (h / 2) - 20)), cv2.FONT_HERSHEY_SIMPLEX, 7, (0, 255, 0), 15)
